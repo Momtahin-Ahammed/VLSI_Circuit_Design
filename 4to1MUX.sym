@@ -1,0 +1,43 @@
+DSCH 3.5
+VERSION 18-Apr-22 10:33:56 PM
+BB(105,-15,145,55)
+SYM  #4to1MUX
+BB(105,-15,145,55)
+TITLE 115 -22  #4to1MUX
+MODEL 6000
+PROP                                                                                                                                   
+REC(110,-10,30,60,r)
+VIS 5
+PIN(105,-5,0.000,0.000)s1
+PIN(105,5,0.000,0.000)s0
+PIN(105,45,0.000,0.000)A
+PIN(105,35,0.000,0.000)B
+PIN(105,25,0.000,0.000)C
+PIN(105,15,0.000,0.000)D
+PIN(145,-5,2.000,1.000)out1
+LIG(105,-5,110,-5)
+LIG(105,5,110,5)
+LIG(105,45,110,45)
+LIG(105,35,110,35)
+LIG(105,25,110,25)
+LIG(105,15,110,15)
+LIG(140,-5,145,-5)
+LIG(110,-10,110,50)
+LIG(110,-10,140,-10)
+LIG(140,-10,140,50)
+LIG(140,50,110,50)
+VLG module 4to1MUX( s1,s0,A,B,C,D,out1);
+VLG input s1,s0,A,B,C,D;
+VLG output out1;
+VLG wire w3,w5,w7,w9,w11,w12,w13,;
+VLG not #(1) inv_1(w3,s1);
+VLG not #(1) inv_2(w5,s0);
+VLG and #(1) and3_3(w7,w3,w5,A);
+VLG and #(1) and3_4(w9,w3,s0,B);
+VLG and #(1) and3_5(w11,s1,w5,C);
+VLG or #(1) or3_6(w12,w7,w9,w11);
+VLG xor #(1) xor2_7(out1,w12,w13);
+VLG and #(1) and3_8(w13,s1,s0,D);
+VLG endmodule
+FSYM
+FFIG E:\SPRING 2022\VLSI\LAB\4to1MUX.sym
